@@ -6,37 +6,37 @@
  */
 include_once("Conexion.php");
 
-class Datos_Gestionar_Punto_Venta_Evento{
+class Datos_Gestionar_Estado_Negocio{
  //constructor	
  	var $con;
- 	function Datos_Gestionar_Punto_Venta_Evento(){
+ 	function Datos_Gestionar_Estado_Negocio(){
  		$this->con=new DBManager;
  	}
 
-	function Insertar_Punto_Venta_Evento($id_evento=0,$id_punto_venta=0){
+	function Insertar_Estado_Negocio($id_evento=0,$id_punto_venta=0){
            
             if($this->con->conectar()==true){			
-			return mysql_query("insert into punto_venta_evento values(0,".$id_evento.",".$id_punto_venta.",'Habilitado')");
+			return mysql_query("insert into Estado_Negocio values(0,".$id_evento.",".$id_punto_venta.",'Habilitado')");
 		}
 	}	
-	function Mostrar_Tabla_Punto_Venta_Evento(){ 
+	function Mostrar_Tabla_Estado_Negocio(){ 
 		if($this->con->conectar()==true){
-			return mysql_query("select punto_venta_evento.id_punto_venta_evento,punto_venta_evento.id_evento,punto_venta_evento.id_punto_venta,(select evento.nombre from evento where evento.id_evento=punto_venta_evento.id_evento) as eventos,(select punto_venta.nombre from punto_venta where punto_venta.id_punto_venta=punto_venta_evento.id_punto_venta) as punto_ventas from punto_venta_evento where punto_venta_evento.observacion='Habilitado' ;");
+			return mysql_query("select Estado_Negocio.id_Estado_Negocio,Estado_Negocio.id_evento,Estado_Negocio.id_punto_venta,(select evento.nombre from evento where evento.id_evento=Estado_Negocio.id_evento) as eventos,(select punto_venta.nombre from punto_venta where punto_venta.id_punto_venta=Estado_Negocio.id_punto_venta) as punto_ventas from Estado_Negocio where Estado_Negocio.observacion='Habilitado' ;");
 		}
 	}
        
         
-	function Eliminar_Punto_Venta_Evento($id_punto_venta_evento=0){
+	function Eliminar_Estado_Negocio($id_Estado_Negocio=0){
             
 		if($this->con->conectar()==true){
-			return mysql_query("update punto_venta_evento set observacion= 'DesHabilitado' where id_punto_venta_evento = ".$id_punto_venta_evento);
+			return mysql_query("update Estado_Negocio set observacion= 'DesHabilitado' where id_Estado_Negocio = ".$id_Estado_Negocio);
 		}
 	}
       
 	
-        function Modificar_Punto_Venta_Evento($id_punto_venta_evento=0,$id_evento=0,$id_punto_venta=0){
+        function Modificar_Estado_Negocio($id_Estado_Negocio=0,$id_evento=0,$id_punto_venta=0){
 		if($this->con->conectar()==true){
-			return mysql_query("update punto_venta_evento set id_evento=".$id_evento.",id_punto_venta=".$id_punto_venta." where id_punto_venta_evento = ".$id_punto_venta_evento);
+			return mysql_query("update Estado_Negocio set id_evento=".$id_evento.",id_punto_venta=".$id_punto_venta." where id_Estado_Negocio = ".$id_Estado_Negocio);
 		}
 	}
        
