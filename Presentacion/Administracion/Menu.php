@@ -10,6 +10,7 @@
           <div class="nav-collapse">
             <ul class="nav pull-right">
                 <li><a href="Negocio.php">Negocio</a></li>
+                <li><a href="Estado_Negocio.php">Estado Negocio</a></li>
                 <li><a href="Promocion.php">Promocion</a></li>
                 <li><a href="Imagen_Negocio.php">Imagen Negocio</a></li>
                 <li><a href="Horario.php">Horario</a></li>

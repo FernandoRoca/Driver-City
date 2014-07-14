@@ -21,7 +21,11 @@ class Datos_Gestionar_Punto_Venta_Evento{
 	}	
 	function Mostrar_Tabla_Punto_Venta_Evento(){ 
 		if($this->con->conectar()==true){
-			return mysql_query("select punto_venta_evento.id_punto_venta_evento,punto_venta_evento.id_evento,punto_venta_evento.id_punto_venta,(select evento.nombre from evento where evento.id_evento=punto_venta_evento.id_evento) as eventos,(select punto_venta.nombre from punto_venta where punto_venta.id_punto_venta=punto_venta_evento.id_punto_venta) as punto_ventas from punto_venta_evento where punto_venta_evento.observacion='Habilitado' ;");
+			return mysql_query("select punto_venta_evento.id_punto_venta_evento,punto_venta_evento.id_evento,punto_venta_evento.id_punto_venta,
+evento.nombre as eventos,
+punto_venta.nombre as punto_ventas 
+from punto_venta_evento,evento,punto_venta where punto_venta_evento.observacion='Habilitado' and evento.id_evento=punto_venta_evento.id_evento 
+and evento.observacion='Habilitado' and punto_venta.id_punto_venta=punto_venta_evento.id_punto_venta and punto_venta.observacion='Habilitado';");
 		}
 	}
        
