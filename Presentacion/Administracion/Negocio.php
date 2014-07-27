@@ -76,7 +76,7 @@ include_once('Menu.php');
                          $web=base64_decode(@$_GET['web']);
                          $logo=base64_decode(@$_GET['logo']);
                          $Fecha_Inicio= base64_decode(@$_GET['fecha_inicio']);
-                        $Fecha_Fin=base64_decode(@$_GET['fecha_fin']);
+                        $Fecha_Final=base64_decode(@$_GET['fecha_final']);
 
                         
 
@@ -110,7 +110,7 @@ include_once('Menu.php');
       ?>
 
          <p>  Mantener Imagen:</p>
-        <input type="checkbox" name="Mantener_Imagen" value="ON" checked="checked" /><img src="../../img/Logo_Negocio/<?php echo $logo ?>"><p>      <?php echo $logo ?></p></img>
+        <input type="checkbox" name="Mantener_Imagen" value="ON" checked="checked" /><a href="../../img/Logo_Negocio/<?php echo $logo ?>"><p>      <?php echo $logo ?></p></a>
 
          <?php
       }
@@ -123,7 +123,8 @@ include_once('Menu.php');
         <p>Fecha Final:
 
         </p>
-        <input type="text" name="TFechaF" class="tcal" value="<?php echo $Fecha_Fin ?>"  readonly="readonly" />
+        <input type="text" name="TFechaF" class="tcal" value="<?php echo $Fecha_Final ?>"  readonly="readonly" />
+
         <p >Latitud:</p>
         <input type="text" name="latitud" value="<?php echo $latitud;?>"  />
 

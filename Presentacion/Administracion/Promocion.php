@@ -121,11 +121,12 @@ $objN_Promocion=new Negocio_Promocion();
  if (@$_REQUEST['Modificar'] == "Modificar"){
      
      
-     if((isset($_POST["Mantener_Imagen"]))) {         
+     if((isset($_POST["Mantener_Imagen"]))) 
+ {         
          
-      $objN_Promocion->Modificar_Sin_Imagen_Promocion($id_promocion,$_POST["Negocio"],$_POST["Dia"],$_POST["TFechaI"],$_POST["TFechaF"]);     
-    }  
-      else{ 
+   $objN_Promocion->Modificar_Sin_Imagen_Promocion($id_promocion,$_POST["Negocio"],$_POST["Dia"],$_POST["TFechaI"],$_POST["TFechaF"]);     
+ }  
+    else{ 
      
      
       
@@ -156,42 +157,33 @@ $objN_Promocion=new Negocio_Promocion();
          
     }   
  }
-
-
-
-
 if (@$_REQUEST['enviar'] == "Subir Promocion"){
       
         $status = "";
         $direccion_img ="";
-  if ($_POST["action"] == "upload") {
-    // obtenemos los datos del archivo 
-    $tamano = $_FILES["archivo"]['size'];
-    $tipo = $_FILES["archivo"]['type'];
-    $archivo = $_FILES["archivo"]['name'];
-    $prefijo = substr(md5(uniqid(rand())),0,6);
-    
-    if ($archivo != "") {
-      // guardamos el archivo a la carpeta files
-      $destino =  "../../img/Imagen_Promocion/".$prefijo."_".$archivo;
-                  $direccion_img="".$prefijo."_".$archivo;
-      if (copy($_FILES['archivo']['tmp_name'],$destino)) {
-        $status = "Archivo subido: <b>".$archivo."</b>";
-      } else {
-        $status = "Error al subir el archivo";
-      }
+if ($_POST["action"] == "upload") {
+  // obtenemos los datos del archivo 
+  $tamano = $_FILES["archivo"]['size'];
+  $tipo = $_FILES["archivo"]['type'];
+  $archivo = $_FILES["archivo"]['name'];
+  $prefijo = substr(md5(uniqid(rand())),0,6);
+  
+  if ($archivo != "") {
+    // guardamos el archivo a la carpeta files
+    $destino =  "../../img/Imagen_Promocion/".$prefijo."_".$archivo;
+                $direccion_img="".$prefijo."_".$archivo;
+    if (copy($_FILES['archivo']['tmp_name'],$destino)) {
+      $status = "Archivo subido: <b>".$archivo."</b>";
     } else {
-      $status = "Error al subir archivo";
+      $status = "Error al subir el archivo";
     }
+  } else {
+    $status = "Error al subir archivo";
   }
-
- $objN_Promocion->Insertar_Promocion($_POST["Negocio"],$_POST["Dia"],$direccion_img,$_POST["TFechaI"],$_POST["TFechaF"]);
- 
 }
 
-
-
-
+ $objN_Promocion->Insertar_Promocion($_POST["Negocio"],$_POST["Dia"],$direccion_img,$_POST["TFechaI"],$_POST["TFechaF"]);
+}
 
 ?>
 </br></br>

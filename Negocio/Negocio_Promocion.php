@@ -186,11 +186,11 @@ function Modificar_Imagen_Promocion($id_promocion=0,$id_negocio=0,$id_dia=0,$ima
             else{
                 $consulta=$this->objD_Gestionar_Promocion->Obtener_Imagen_Promocion($id_promocion);
                                 if($consulta) {
-                                    while( $Imagen_Promocion = mysql_fetch_array($consulta) ){
+                                while( $Imagen_Promocion = mysql_fetch_array($consulta) ){
                                             if($Imagen_Promocion['imagen']!="")
                                             unlink("../../img/Imagen_Promocion/".$Imagen_Promocion['imagen'] );
                                           }
-                                }
+                                          }
                                           
                                     if ($this->objD_Gestionar_Promocion->Modificar_Imagen_Promocion($id_promocion,$id_negocio,$id_dia,$imagen,$fecha_inicio,$fecha_final) == true){
 

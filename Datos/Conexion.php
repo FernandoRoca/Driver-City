@@ -10,18 +10,15 @@ class DBManager{
 
                  /* Tambien cambiar en la autentificacion control*/
 
-/*
-        $this->BaseDatos = "n260m_15083950_driver";
-		$this->Servidor = "sql313.260mb.net";
-		$this->Usuario = "n260m_15083950";
-		$this->Clave = "Br1cksof";
-*/
+
 
 		$this->BaseDatos = "divercity";
 		$this->Servidor = "localhost";
 		$this->Usuario = "root";
 		$this->Clave = "admintorca";
 		
+
+
 	}
 
 	 function conectar() {

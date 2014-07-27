@@ -29,14 +29,19 @@ include_once('Menu.php');
                            
                                 
            <h1>Gestionar Contacto Negocio</h1>
-			 <?php
-            $id_contacto_negocio=  base64_decode(@$_GET['id_contacto_negocio']);
-            $id_negocio=  base64_decode(@$_GET['id_negocio']);
-            $nombre=  base64_decode(@$_GET['nombre']);
-            $telefono=base64_decode(@$_GET['telefono']);
-            $celular=base64_decode(@$_GET['celular']);
-            
-        	?>
+                                     <?php
+      
+      
+                          
+                        $id_contacto_negocio=  base64_decode(@$_GET['id_contacto_negocio']);
+                        $id_negocio=  base64_decode(@$_GET['id_negocio']);
+                        $nombre=  base64_decode(@$_GET['nombre']);
+                        $telefono=base64_decode(@$_GET['telefono']);
+                        $celular=base64_decode(@$_GET['celular']);
+                        
+                        
+                        ?>
+
     <form  method="post" enctype="multipart/form-data" style="text-align: center">
          <p> Negocio:</p>
         <select id="Negocio" name="Negocio">

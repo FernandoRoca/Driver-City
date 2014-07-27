@@ -135,7 +135,7 @@ function Tabla_Negocio(){
       <th>Posicion X</th>
       <th>Posicion Y</th>
       <th>Fecha Inicio</th>
-      <th>Fecha Fin</th>
+      <th>Fecha Final</th>
       <th>Editar</th>
       <th>Eliminar</th>
 
@@ -154,13 +154,12 @@ if($consulta) {
                           <td align="middle">';echo $Tabla_Negocio['direccion'];echo'</td>
                           <td align="middle">';echo $Tabla_Negocio['descripcion'];echo'</td>    
                           <td align="middle">';echo $Tabla_Negocio['web'];echo'</td>    
-                          <td align="middle"><img src="../../img/Logo_Negocio/';echo $Tabla_Negocio['logo'];echo'"></img></td>	  
-						 
+                          <td align="middle"><a href="../../img/Logo_Negocio/';echo $Tabla_Negocio['logo'];echo'">';echo $Tabla_Negocio['logo'];echo '</a></td>
                           <td align="middle">';echo $Tabla_Negocio['posicion_x'];echo'</td>
                           <td align="middle">';echo $Tabla_Negocio['posicion_y'];echo'</td>    
                           <td align="middle">';echo $Tabla_Negocio['fecha_inicio'];echo'</td>
-                          <td align="middle">';echo $Tabla_Negocio['fecha_fin'];echo'</td>    
-                          <td align="middle"><span class="modi"><a href="Negocio.php?id_negocio=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'&id_principal=';echo  base64_encode($Tabla_Negocio['id_principal']);echo'&nombre=';echo base64_encode($Tabla_Negocio['nombre']);echo'&direccion=';echo base64_encode($Tabla_Negocio['direccion']);echo'&descripcion=';echo base64_encode($Tabla_Negocio['descripcion']);echo'&web=';echo base64_encode($Tabla_Negocio['web']);echo'&logo=';echo base64_encode($Tabla_Negocio['logo']);echo'&latitud=';echo base64_encode($Tabla_Negocio['posicion_x']);echo'&longitud=';echo base64_encode($Tabla_Negocio['posicion_y']);echo'&fecha_inicio=';echo base64_encode($Tabla_Negocio['fecha_inicio']);echo'&fecha_fin=';echo base64_encode($Tabla_Negocio['fecha_fin']);echo'"><img src="../../img/database_edit.png" title="Editar" alt="Editar" /></a></span></td>
+                          <td align="middle">';echo $Tabla_Negocio['fecha_final'];echo'</td>    
+                          <td align="middle"><span class="modi"><a href="Negocio.php?id_negocio=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'&id_principal=';echo  base64_encode($Tabla_Negocio['id_principal']);echo'&nombre=';echo base64_encode($Tabla_Negocio['nombre']);echo'&direccion=';echo base64_encode($Tabla_Negocio['direccion']);echo'&descripcion=';echo base64_encode($Tabla_Negocio['descripcion']);echo'&web=';echo base64_encode($Tabla_Negocio['web']);echo'&logo=';echo base64_encode($Tabla_Negocio['logo']);echo'&latitud=';echo base64_encode($Tabla_Negocio['posicion_x']);echo'&longitud=';echo base64_encode($Tabla_Negocio['posicion_y']);echo'&fecha_inicio=';echo base64_encode($Tabla_Negocio['fecha_inicio']);echo'&fecha_final=';echo base64_encode($Tabla_Negocio['fecha_final']);echo'"><img src="../../img/database_edit.png" title="Editar" alt="Editar" /></a></span></td>
                           <td align="middle"><span class="dele"><a href="Negocio.php?id_negocio=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'&id_principal=';echo  base64_encode($Tabla_Negocio['id_principal']);echo'&nombre="><img src="../../img/delete.png" title="Eliminar" alt="Eliminar" /></a></span></td>
 
 
@@ -209,7 +208,7 @@ function Modificar_Logo_Negocio($id_negocio=0,$id_principal=0,$nombre="",$direcc
             }
             else{
 
-               if($fecha_fin==""){
+               if($fecha_final==""){
               echo  "<script>alert('Inserte Fecha Final de Suscripcion!!');
 
                 </script>";
@@ -238,7 +237,7 @@ function Modificar_Logo_Negocio($id_negocio=0,$id_principal=0,$nombre="",$direcc
                                           }
                                           }
                                           
-                                    if ($this->objD_Gestionar_Negocio->Modificar_Logo_Negocio($id_negocio,$id_principal,$nombre,$direccion,$descripcion,$web,$logo,$x,$y,$fecha_inicio,$fecha_fin) == true){
+                                    if ($this->objD_Gestionar_Negocio->Modificar_Logo_Negocio($id_negocio,$id_principal,$nombre,$direccion,$descripcion,$web,$logo,$x,$y,$fecha_inicio,$fecha_final) == true){
 
                                 echo "<script>alert('Modificacion Realizada con Exito!!');
 
@@ -257,7 +256,7 @@ function Modificar_Logo_Negocio($id_negocio=0,$id_principal=0,$nombre="",$direcc
   }
 }
 
-function Modificar_Sin_Logo_Negocio($id_negocio=0,$id_principal=0,$nombre="",$direccion="",$descripcion="",$web="",$x=0.0,$y=0.0,$fecha_inicio="",$fecha_fin=""){
+function Modificar_Sin_Logo_Negocio($id_negocio=0,$id_principal=0,$nombre="",$direccion="",$descripcion="",$web="",$x=0.0,$y=0.0,$fecha_inicio="",$fecha_final=""){
 
 
 
@@ -306,7 +305,8 @@ function Modificar_Sin_Logo_Negocio($id_negocio=0,$id_principal=0,$nombre="",$di
             }
             else{              
 
-                                    if ($this->objD_Gestionar_Negocio->Modificar_sin_Logo_Negocio($id_negocio,$id_principal,$nombre,$direccion,$descripcion,$web,$x,$y,$fecha_inicio,$fecha_fin) == true){
+                                    if ($this->objD_Gestionar_Negocio->Modificar_sin_Logo_Negocio($id_negocio,$id_principal,$nombre,$direccion,$descripcion,$web,$x,$y,$fecha_inicio,$fecha_final) == true){
+                                        
 
                                 echo "<script>alert('Modificacion Realizada con Exito!!');
 
