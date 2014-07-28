@@ -179,7 +179,36 @@ function Modificar_Sin_Imagen_Negocio($id_imagen_negocio=0,$id_negocio=0){
                 }
   }
 
-
+   function Obtener_Imagen_Negocio($id_negocio=0){
+      $consulta=$this->objD_Gestionar_Imagen_Negocio->Obtener_Imagen_del_Negocio($id_negocio);
+      if($consulta) {
+        while( $imagen_Negocio = mysql_fetch_array($consulta) ){
+                    if($imagen_Negocio['ubicacion']!=""){
+                         echo"<div class=\"item \">" ; 
+                         echo "<img width=1200 px;  src=\"../../img/Imagen_Negocio/".$imagen_Negocio['ubicacion']."\">";                      
+                         echo"</div>"; 
+                    }
+               }
+              }
+  }
+function Insertar_Slider($id_negocio=0){
+      $consulta=$this->objD_Gestionar_Imagen_Negocio->Obtener_Imagen_del_Negocio($id_negocio);
+      if($consulta) {
+        while( $imagen_Negocio = mysql_fetch_array($consulta) ){
+                    if($imagen_Negocio['ubicacion']!=""){
+                        echo "  <div id=\"myCarousel\" class=\"carousel slide\">
+                                <div class=\"carousel-inner\">";
+                       $this->Obtener_Imagen_Negocio($id_negocio);
+                       echo "</div>
+                            <a class=\"left carousel-control\" href=\"#myCarousel\" data-slide=\"prev\"><img src=\"../../img/arrow.png\" alt=\"Arrow\"></a>
+                            <a class=\"right carousel-control\" href=\"#myCarousel\" data-slide=\"next\"><img src=\"../../img/arrow2.png\" alt=\"Arrow\"></a>
+                            </div>
+                              <hr>";
+                       break;
+                    }
+               }
+              }
+  }
 }
 ?>
 

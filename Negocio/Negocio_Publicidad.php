@@ -1,9 +1,9 @@
 <?php
-class Negocio_Gestionar_Publicidad{
+class Negocio_Publicidad{
 var $objD_Gestionar_Publicidad;
 
 	
-        function Negocio_Gestionar_Publicidad(){
+        function Negocio_Publicidad(){
        
 		require('../../Datos/D_Gestionar_Publicidad.php');              
 		$this->objD_Gestionar_Publicidad=new Datos_Gestionar_Publicidad();
@@ -19,8 +19,9 @@ var $objD_Gestionar_Publicidad;
         
   while( $Publicidad = mysql_fetch_array($consulta) ){
       
-       
+        echo"<div class=\"item \">";
                 echo "  <img src=\"../../img/Imagen_Publicidad/".$Publicidad['imagen']."\">"; 
+              echo"</div>";  
         
         }
         }
@@ -36,6 +37,7 @@ var $objD_Gestionar_Publicidad;
       
        
               $tiempo= $Publicidad['tiempo'];
+              
               
         }
         }

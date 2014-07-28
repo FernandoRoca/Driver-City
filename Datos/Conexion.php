@@ -12,10 +12,10 @@ class DBManager{
 
 
 
-		$this->BaseDatos = "divercity";
+		$this->BaseDatos = "movil";
 		$this->Servidor = "localhost";
 		$this->Usuario = "root";
-		$this->Clave = "admintorca";
+		$this->Clave = "123";
 		
 
 

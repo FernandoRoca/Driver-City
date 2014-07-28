@@ -119,6 +119,18 @@ function Insertar_Negocio($id_principal=0,$nombre="",$direccion="",$descripcion=
 
 
 }
+function Obtener_Datos_Negocio($id_negocio=0){
+    
+   $consulta=$this->objD_Gestionar_Negocio->Mostrar_Datos_Negocio($id_negocio);   
+   if($consulta) {
+  while( $Tabla_Negocio = mysql_fetch_array($consulta) ){
+     echo" <h1> Nombre:"; echo $Tabla_Negocio['nombre']; echo "</h1></br>  ";
+     echo" <h1> Direccion:"; echo $Tabla_Negocio['direccion']; echo "</h1> </br> ";
+     echo" <h1> Descripcion:"; echo $Tabla_Negocio['descripcion']; echo "</h1></br>  ";
+  }
+   }
+}
+
 function Tabla_Negocio(){
    $consulta=$this->objD_Gestionar_Negocio->Mostrar_Tabla_Negocio();
 
@@ -175,6 +187,17 @@ echo '</tbody>
 
 
 
+  }
+  function Obtener_Logo($id_negocio=0){
+      $consulta=$this->objD_Gestionar_Negocio->Obtener_Logo_Negocio($id_negocio);
+      if($consulta) {
+        while( $Logo_Negocio = mysql_fetch_array($consulta) ){
+                    if($Logo_Negocio['logo']!="")
+                      
+                    echo "<img width=1200 px;  src=\"../../img/Imagen_Negocio/".$Logo_Negocio['logo']."\">";
+                   
+               }
+              }
   }
 function Modificar_Logo_Negocio($id_negocio=0,$id_principal=0,$nombre="",$direccion="",$descripcion="",$web="",$logo="",$x=0.0,$y=0.0,$fecha_inicio="",$fecha_final=""){
 

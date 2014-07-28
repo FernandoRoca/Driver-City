@@ -25,6 +25,13 @@ class Datos_Gestionar_Negocio{
 			return mysql_query("select negocio.id_negocio,negocio.id_principal,principal.nombre as principal,negocio.nombre,negocio.direccion,negocio.descripcion,negocio.web,negocio.logo,negocio.posicion_x,negocio.posicion_y,negocio.fecha_inicio,negocio.fecha_final from negocio,principal where negocio.observacion='Habilitado' and principal.id_principal=negocio.id_principal and principal.observacion='Habilitado';");
 		}
 	}
+        function Mostrar_Datos_Negocio($id_negocio=0){
+              date_default_timezone_set("America/La_Paz"); 
+            $Fecha= date("Y-m-d");
+		if($this->con->conectar()==true){
+			return mysql_query("select negocio.id_negocio,negocio.id_principal,principal.nombre as principal,negocio.nombre,negocio.direccion,negocio.descripcion,negocio.web,negocio.logo,negocio.posicion_x,negocio.posicion_y,negocio.fecha_inicio,negocio.fecha_final from negocio,principal where negocio.observacion='Habilitado' and principal.id_principal=negocio.id_principal and principal.observacion='Habilitado' and id_negocio = ".$id_negocio." and '".$Fecha."' between fecha_inicio and fecha_final;");
+		}
+	}
         function Obtener_Logo_Negocio($id_negocio=0){
 		if($this->con->conectar()==true){
 			return mysql_query("select logo from negocio where id_negocio = ".$id_negocio);
