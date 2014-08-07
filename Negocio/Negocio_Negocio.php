@@ -120,6 +120,18 @@ function Insertar_Negocio($id_principal=0,$nombre="",$direccion="",$descripcion=
 
 
 }
+function Obtener_Datos_Negocio($id_negocio=0){
+    
+   $consulta=$this->objD_Gestionar_Negocio->Mostrar_Datos_Negocio($id_negocio);   
+   if($consulta) {
+  while( $Tabla_Negocio = mysql_fetch_array($consulta) ){
+     echo" <h3> Nombre:  "; echo $Tabla_Negocio['nombre']; echo "</h3></br>  ";
+     echo" <h3> Direccion:  "; echo $Tabla_Negocio['direccion']; echo "</h3> </br> ";
+     echo" <h3> Descripcion: "; echo $Tabla_Negocio['descripcion']; echo "</h3></br>  ";
+  }
+   }
+}
+
 function Tabla_Negocio(){
    $consulta=$this->objD_Gestionar_Negocio->Mostrar_Tabla_Negocio();
 
@@ -177,6 +189,17 @@ echo '</tbody>
 
 
 
+  }
+  function Obtener_Logo($id_negocio=0){
+      $consulta=$this->objD_Gestionar_Negocio->Obtener_Logo_Negocio($id_negocio);
+      if($consulta) {
+        while( $Logo_Negocio = mysql_fetch_array($consulta) ){
+                    if($Logo_Negocio['logo']!="")
+                      
+                    echo "<img width=1200 px;  src=\"../../img/Imagen_Negocio/".$Logo_Negocio['logo']."\">";
+                   
+               }
+              }
   }
 function Modificar_Logo_Negocio($id_negocio=0,$id_principal=0,$nombre="",$direccion="",$descripcion="",$web="",$logo="",$x=0.0,$y=0.0,$fecha_inicio="",$fecha_final=""){
 
@@ -324,7 +347,142 @@ function Modificar_Sin_Logo_Negocio($id_negocio=0,$id_principal=0,$nombre="",$di
 
   }
   }
+function Tabla_Negocio_Principal($id_Principal=0){
+   $consulta=$this->objD_Gestionar_Negocio->Mostrar_Tabla_Negocio_Principal($id_Principal);
 
+    echo '<table id="example"  cellspacing="0" width="100%" border="0" style="background: #ffffff;">
+  <thead>
+      <tr>
+      <th>Logo</th>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+
+        </tr>
+      </thead>
+      <tbody>';
+
+ $Contador=1;
+if($consulta) {
+  while( $Tabla_Negocio = mysql_fetch_array($consulta) ){
+
+   echo' <tr>';
+                        if($Tabla_Negocio['sucursal']>0){
+                          if($Tabla_Negocio['abierto']>0){
+                        echo'<td align="middle"  bgcolor= "#31B404"><a href="Listado_Negocios.php?id_principal=';echo base64_encode($id_Principal);echo'&id_central=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'"><img src="../../img/Logo_Negocio/';echo $Tabla_Negocio['logo'];echo'"/></a></td> 
+                          <td align="middle"  bgcolor= "#31B404"><a href="Listado_Negocios.php?id_principal=';echo base64_encode($id_Principal);echo'&id_central=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'">';echo $Tabla_Negocio['nombre'];echo'</a></td>
+                          <td align="middle"  bgcolor= "#31B404"><a href="Listado_Negocios.php?id_principal=';echo base64_encode($id_Principal);echo'&id_central=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'">';echo $Tabla_Negocio['descripcion'];echo'</a></td> ';
+                          
+                          }
+                          else{
+                            echo'  <td align="middle"  bgcolor= "#FE2E2E"><a href="Listado_Negocios.php?id_principal=';echo base64_encode($id_Principal);echo'&id_central=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'"><img src="../../img/Logo_Negocio/';echo $Tabla_Negocio['logo'];echo'"/></a></td> 
+                          <td align="middle"  bgcolor= "#FE2E2E"><a href="Listado_Negocios.php?id_principal=';echo base64_encode($id_Principal);echo'&id_central=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'">';echo $Tabla_Negocio['nombre'];echo'</a></td>
+                          <td align="middle"  bgcolor= "#FE2E2E"><a href="Listado_Negocios.php?id_principal=';echo base64_encode($id_Principal);echo'&id_central=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'">';echo $Tabla_Negocio['descripcion'];echo'</a></td>'; 
+                          
+                          }
+                        }
+                        else{
+                             if($Tabla_Negocio['abierto']>0){
+                        echo'<td align="middle"  bgcolor= "#31B404"><a href="Visual_General.php?id_negocio=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'"><img src="../../img/Logo_Negocio/';echo $Tabla_Negocio['logo'];echo'"/></a></td> 
+                          <td align="middle"  bgcolor= "#31B404"><a href="Visual_General.php?id_negocio=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'">';echo $Tabla_Negocio['nombre'];echo'</a></td>
+                          <td align="middle"  bgcolor= "#31B404"><a href="Visual_General.php?id_negocio=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'">';echo $Tabla_Negocio['descripcion'];echo'</a></td> ';
+                          
+                          }
+                          else{
+                            echo'  <td align="middle"  bgcolor= "#FE2E2E"><a href="Visual_General.php?id_negocio=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'"><img src="../../img/Logo_Negocio/';echo $Tabla_Negocio['logo'];echo'"/></a></td> 
+                          <td align="middle"  bgcolor= "#FE2E2E"><a href="Visual_General.php?id_negocio=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'">';echo $Tabla_Negocio['nombre'];echo'</a></td>
+                          <td align="middle"  bgcolor= "#FE2E2E"><a href="Visual_General.php?id_negocio=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'">';echo $Tabla_Negocio['descripcion'];echo'</a></td>'; 
+                          
+                          }
+                        }
+                                                
+                          
+
+
+     echo' </tr> ';
+
+        $Contador++;
+    }
+}
+
+
+echo '</tbody>
+    </table>  ';
+
+
+
+  }
+  
+  function Tabla_Negocio_Principal_Sucursales($id_Principal=0,$id_central=0){
+  
+
+    echo '<table id="example"  cellspacing="0" width="100%" border="1" style="background: #ffffff;">
+  <thead>
+      <tr>
+      <th>Logo</th>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+
+        </tr>
+      </thead>
+      <tbody>';
+ $consulta=$this->objD_Gestionar_Negocio->Mostrar_Tabla_Negocio_Central($id_Principal,$id_central);
+ $Contador=1;
+ if($consulta) {
+  while( $Tabla_Negocio = mysql_fetch_array($consulta) ){
+
+   echo' <tr>';
+    if($Tabla_Negocio['abierto']>0){
+                        echo'<td align="middle"  bgcolor= "#31B404"><a href="Visual_General.php?id_negocio=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'"><img src="../../img/Logo_Negocio/';echo $Tabla_Negocio['logo'];echo'"/></td> 
+                          <td align="middle"  bgcolor= "#31B404"><a href="Visual_General.php?id_negocio=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'">';echo $Tabla_Negocio['nombre'];echo' (Central)</a></td>
+                          <td align="middle"  bgcolor= "#31B404"><a href="Visual_General.php?id_negocio=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'">';echo $Tabla_Negocio['descripcion'];echo'</a></td> ';
+                          
+                          }
+                          else{
+                            echo'  <td align="middle"  bgcolor= "#FE2E2E"><a href="Visual_General.php?id_negocio=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'"><img src="../../img/Logo_Negocio/';echo $Tabla_Negocio['logo'];echo'"/></a></td> 
+                          <td align="middle"  bgcolor= "#FE2E2E"><a href="Visual_General.php?id_negocio=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'">';echo $Tabla_Negocio['nombre'];echo' (Central)</a></td>
+                          <td align="middle"  bgcolor= "#FE2E2E"><a href="Visual_General.php?id_negocio=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'">';echo $Tabla_Negocio['descripcion'];echo'</a></td>'; 
+                          
+                          }
+    echo' </tr> ';
+
+        $Contador++;
+  }
+ }
+  $consulta=$this->objD_Gestionar_Negocio->Mostrar_Tabla_Negocio_Sucursales_Principal($id_Principal,$id_central);
+if($consulta) {
+  while( $Tabla_Negocio = mysql_fetch_array($consulta) ){
+
+   echo' <tr>';
+                        
+                          if($Tabla_Negocio['abierto']>0){
+                        echo'<td align="middle"  bgcolor= "#31B404"><a href="Visual_General.php?id_negocio=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'"><img src="../../img/Logo_Negocio/';echo $Tabla_Negocio['logo'];echo'"/></a></td> 
+                          <td align="middle"  bgcolor= "#31B404"><a href="Visual_General.php?id_negocio=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'">';echo $Tabla_Negocio['nombre'];echo' (Sucursal)</a></td>
+                          <td align="middle"  bgcolor= "#31B404"><a href="Visual_General.php?id_negocio=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'">';echo $Tabla_Negocio['descripcion'];echo'</a></td> ';
+                          
+                          }
+                          else{
+                            echo'  <td align="middle"  bgcolor= "#FE2E2E"><a href="Visual_General.php?id_negocio=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'"><img src="../../img/Logo_Negocio/';echo $Tabla_Negocio['logo'];echo'"/></a></td> 
+                          <td align="middle"  bgcolor= "#FE2E2E"><a href="Visual_General.php?id_negocio=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'">';echo $Tabla_Negocio['nombre'];echo' (Sucursal)</a></td>
+                          <td align="middle"  bgcolor= "#FE2E2E"><a href="Visual_General.php?id_negocio=';echo base64_encode($Tabla_Negocio['id_negocio']);echo'">';echo $Tabla_Negocio['descripcion'];echo'</a></td>'; 
+                          
+                          }
+                                                
+                          
+
+
+     echo' </tr> ';
+
+        $Contador++;
+    }
+}
+
+
+echo '</tbody>
+    </table>  ';
+
+
+
+  }
 }
 ?>
 

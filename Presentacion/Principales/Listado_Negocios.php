@@ -17,6 +17,9 @@ include_once('Helper.php');
 
   <!--<img width=1200 px src="../../img/Imagen_Negocio/d3ed44_1BIGdegradados.png"/>-->
        <?php
+                $id_Central= base64_decode(@$_GET['id_central']);
+                $id_principal=base64_decode(@$_GET['id_principal']);
+                $tipo=base64_decode(@$_GET['tipo']);
               require('../../Negocio/Negocio_Publicidad.php');
               $objN_Imagen_Publicidad=new Negocio_Publicidad();
               $objN_Imagen_Publicidad->Insertar_Slider();
@@ -25,26 +28,29 @@ include_once('Helper.php');
      
 
   <hr>
-    
-     
-             
-
-              
-          
-              
-            
-    
-
-
+       <form  method="post" enctype="multipart/form-data" style="text-align: center">
+       <input name="Promocion" type="submit" class="boton pull-right" id="Modificar" value="Promocion del Dia" /> 
+       </form>
+       <?php
+if (@$_REQUEST['Promocion'] == "Promocion del Dia"){
+ echo "<script> location.href='Promocion_Dia.php?id_principal=".base64_encode($id_principal)."';</script>";
+ }
+ ?>
+ <br/><br/><br/>
+ 
       <div class="content_adm" align="center" >
                                   
     
        
         <?php
-          
-        require('../../Negocio/Negocio_Principal.php');
-         $objN_Principal=new Negocio_Principal();
-          $objN_Principal->Mostrar_Imagenes_Principal();
+         
+          echo "<h3>".$tipo."</h3><br/>";
+        require('../../Negocio/Negocio_Negocio.php');
+         $objN_Principal=new Negocio_Negocio();
+         if($id_Central==0)
+          $objN_Principal->Tabla_Negocio_Principal($id_principal);
+         else
+          $objN_Principal->Tabla_Negocio_Principal_Sucursales($id_principal,$id_Central);
         ?>
 
         </div>

@@ -99,6 +99,47 @@ function Insertar_Promocion($id_negocio=0,$id_dia=0,$imagen="",$fecha_inicio="",
 
 
 }
+function Tabla_Promocion_Negocios($id_principal=0){
+    for($dia=1;$dia<8;$dia++){
+       
+   $consulta=$this->objD_Gestionar_Promocion->Mostrar_Tabla_Promocion_Negocios($id_principal,$dia);
+        if($consulta) {
+            
+             
+             $cont=1;
+          while( $Tabla_Promocion = mysql_fetch_array($consulta) ){
+            if($cont==1){
+                 switch ($dia){
+            case 1: echo "<h3>Lunes</h3><br/>";break;
+            case 2: echo "<h3>Martes</h3><br/>";break;
+            case 3: echo "<h3>Miercoles</h3><br/>";  break;  
+            case 4: echo "<h3>Jueves</h3><br/>";break;
+            case 5: echo "<h3>Viernes</h3><br/>";break;
+            case 6: echo "<h3>Sabado</h3><br/>";   break; 
+            case 7: echo "<h3>Domingo</h3><br/>";break;
+        }
+            echo'  <div id="myCarousel" class="carousel slide">
+            <div class="carousel-inner">';    
+            echo"<div class=\"item active\">";
+            }
+            else{
+            echo"<div class=\"item \">"; 
+            }
+            echo "<a href=\"Visual_General.php?id_negocio=".base64_encode($Tabla_Promocion['id_negocio'])."\" ><img width=1200 px; src=\"../../img/Imagen_Promocion/".$Tabla_Promocion['imagen']."\"></a>"; 
+            echo"</div>"; 
+            $cont++;
+          }
+          if($cont>1){
+           echo'     </div>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><img src="../../img/arrow.png" alt="Arrow"></a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next"><img src="../../img/arrow2.png" alt="Arrow"></a>
+          </div><hr>';}
+        }             
+      
+    }
+   
+   
+}
 function Tabla_Promocion(){
    $consulta=$this->objD_Gestionar_Promocion->Mostrar_Tabla_Promocion();
 

@@ -29,6 +29,11 @@ class Datos_Gestionar_Imagen_Negocio{
 			return mysql_query("select ubicacion from imagen_negocio where id_imagen_negocio = ".$id_imagen_negocio);
 		}
 	}
+        function Obtener_Imagen_del_Negocio($id_negocio=0){
+		if($this->con->conectar()==true){
+			return mysql_query("select ubicacion from imagen_negocio where id_negocio = ".$id_negocio);
+		}
+	}
 
 	function Eliminar_Imagen_Negocio($id_imagen_negocio=0){
 		if($this->con->conectar()==true){

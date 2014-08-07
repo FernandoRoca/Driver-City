@@ -23,9 +23,7 @@
    <script>
 $('.carousel').carousel({
   interval: 
-  <?php    
-    echo $objN_Publicidad->get_tiempo();
-    ?>
+3000
 })
 </script>
   <script>

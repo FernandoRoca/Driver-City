@@ -24,6 +24,14 @@ class Datos_Gestionar_Promocion{
 			return mysql_query("select promocion.id_promocion,promocion.id_negocio,negocio.nombre as negocio,promocion.id_dia,(select dia.nombre from dia where dia.id_dia=promocion.id_dia) as dia,promocion.imagen,promocion.fecha_inicio,promocion.fecha_fin from promocion,negocio where promocion.observacion='Habilitado' and  promocion.id_negocio=negocio.id_negocio and negocio.observacion='Habilitado';");
 		}
 	}
+        function Mostrar_Tabla_Promocion_Negocios($id_principal=0,$Dia=0){
+             date_default_timezone_set("America/La_Paz"); 
+            $Fecha= date("Y-m-d");            
+            
+		if($this->con->conectar()==true){
+			return mysql_query("select promocion.imagen,promocion.id_negocio from promocion,negocio where negocio.id_principal=".$id_principal." and promocion.id_negocio=negocio.id_negocio and '".$Fecha."' between promocion.fecha_inicio and promocion.fecha_fin and promocion.observacion='Habilitado' and promocion.id_dia=".$Dia."; ");
+		}
+	}
         function Obtener_Imagen_Promocion($id_promocion=0){
 		if($this->con->conectar()==true){
 			return mysql_query("select imagen from promocion where id_promocion = ".$id_promocion);

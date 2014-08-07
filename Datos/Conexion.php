@@ -11,11 +11,11 @@ class DBManager{
                  /* Tambien cambiar en la autentificacion control*/
 
 
-
-		$this->BaseDatos = "divercity";
+		
+		$this->BaseDatos = "movil";
 		$this->Servidor = "localhost";
 		$this->Usuario = "root";
-		$this->Clave = "admintorca";
+		$this->Clave = "123";
 		
 
 

@@ -15,7 +15,7 @@ class Datos_Gestionar_Publicidad{
             $Fecha= date("Y-m-d");
            
 		if($this->con->conectar()==true){
-			return mysql_query("select id_publicidad,imagen,tiempo from publicidad where '".$Fecha."' between fecha_inicio and fecha_fin and observacion='Habilitado';");
+			return mysql_query("select id_publicidad,imagen,tiempo from publicidad where '".$Fecha."' between fecha_inicio and fecha_fin and observacion='Habilitado' ORDER BY rand();");
 		}
 	}
         
