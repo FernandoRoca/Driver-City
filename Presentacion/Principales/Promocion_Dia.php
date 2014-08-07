@@ -13,45 +13,24 @@ include_once('Helper.php');
   <body>
   
   
-  <div class="container">
-
-  <!--<img width=1200 px src="../../img/Imagen_Negocio/d3ed44_1BIGdegradados.png"/>-->
-       <?php
+      <div class="container" style="text-align: center;">
+  <?php
               require('../../Negocio/Negocio_Publicidad.php');
               $objN_Imagen_Publicidad=new Negocio_Publicidad();
               $objN_Imagen_Publicidad->Insertar_Slider();
               ?>
+      <hr>
+          <h3>PROMOCIONES DEL DIA</h3>
+   <?php         
+         $id_Principal=base64_decode(@$_GET['id_principal']);
+        require('../../Negocio/Negocio_Promocion.php');
+         $objN_Promocion=new Negocio_Promocion();
+          $objN_Promocion->Tabla_Promocion_Negocios($id_Principal);
+        ?>
   
      
 
-  <hr>
-    
-     
-             
-
-              
-          
-              
-            
-    
-
-
-      <div class="content_adm" align="center" >
-                                  
-    
-       
-        <?php
-          
-        require('../../Negocio/Negocio_Principal.php');
-         $objN_Principal=new Negocio_Principal();
-          $objN_Principal->Mostrar_Imagenes_Principal();
-        ?>
-
-        </div>
-
-
-    
-
+ 
             
       </div>
       

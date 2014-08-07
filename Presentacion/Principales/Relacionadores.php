@@ -14,44 +14,34 @@ include_once('Helper.php');
   
   
   <div class="container">
-
-  <!--<img width=1200 px src="../../img/Imagen_Negocio/d3ed44_1BIGdegradados.png"/>-->
-       <?php
+  <?php
               require('../../Negocio/Negocio_Publicidad.php');
               $objN_Imagen_Publicidad=new Negocio_Publicidad();
               $objN_Imagen_Publicidad->Insertar_Slider();
               ?>
+      <hr>
+   <?php         
+             $id_Negocio=base64_decode(@$_GET['id_negocio']);
+        require('../../Negocio/Negocio_Negocio.php');
+         $objN_Negocio=new Negocio_Negocio();
+          $objN_Negocio->Obtener_Logo($id_Negocio);
+        ?>
   
      
 
   <hr>
     
-     
+       <div class="content_adm" align="center" >
              
 
               
-          
-              
-            
-    
-
-
-      <div class="content_adm" align="center" >
-                                  
-    
-       
-        <?php
-          
-        require('../../Negocio/Negocio_Principal.php');
-         $objN_Principal=new Negocio_Principal();
-          $objN_Principal->Mostrar_Imagenes_Principal();
-        ?>
-
-        </div>
-
-
-    
-
+              <?php
+              require('../../Negocio/Negocio_Contacto_Negocio.php');
+              $objN_Contacto_Negocio=new Negocio_Contacto_Negocio();
+              $objN_Contacto_Negocio->Mostrar_Contacto_Negocio($id_Negocio);
+              ?>
+           
+        </div>  
             
       </div>
       

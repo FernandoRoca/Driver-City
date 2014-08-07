@@ -69,7 +69,19 @@ var $objD_Gestionar_Contacto_Negocio;
 
   }
   
-    
+    function Mostrar_Contacto_Negocio($id_negocio=0){
+   $consulta=$this->objD_Gestionar_Contacto_Negocio->Mostrar_Tabla_Contactos_del_Negocio($id_negocio);
+    echo" <h3>RELACIONADORES</h3></br>  ";
+   if($consulta) {
+  while( $Tabla_Contacto_negocio = mysql_fetch_array($consulta) ){
+       echo" <h3> Nombre:  "; echo $Tabla_Contacto_negocio['nombre']; echo "</h3></br>  ";
+       if($Tabla_Contacto_negocio['telefono']!="")
+     echo" <h3> Telefono: <a href=\"tel:+591";echo $Tabla_Contacto_negocio['telefono']; echo"\">"; echo $Tabla_Contacto_negocio['telefono']; echo "</a></h3></br>  ";
+     if($Tabla_Contacto_negocio['celular']!="")
+     echo" <h3> Celular: <a href=\"tel:+591";echo $Tabla_Contacto_negocio['celular']; echo"\">"; echo $Tabla_Contacto_negocio['celular']; echo "</a></h3></br>  ";
+  }
+   }
+    }
 
   
   function Tabla_Contacto_Negocio(){

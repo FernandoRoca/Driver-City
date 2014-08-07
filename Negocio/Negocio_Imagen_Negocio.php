@@ -182,11 +182,16 @@ function Modificar_Sin_Imagen_Negocio($id_imagen_negocio=0,$id_negocio=0){
    function Obtener_Imagen_Negocio($id_negocio=0){
       $consulta=$this->objD_Gestionar_Imagen_Negocio->Obtener_Imagen_del_Negocio($id_negocio);
       if($consulta) {
+          $cont=1;
         while( $imagen_Negocio = mysql_fetch_array($consulta) ){
                     if($imagen_Negocio['ubicacion']!=""){
-                         echo"<div class=\"item \">" ; 
+                        if($cont==1)
+                         echo"<div class=\"item active\">" ; 
+                        else
+                         echo"<div class=\"item \">" ;    
                          echo "<img width=1200 px;  src=\"../../img/Imagen_Negocio/".$imagen_Negocio['ubicacion']."\">";                      
-                         echo"</div>"; 
+                         echo"</div>";
+                         $cont++;
                     }
                }
               }

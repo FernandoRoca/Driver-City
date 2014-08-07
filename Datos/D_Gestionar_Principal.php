@@ -19,6 +19,11 @@ class Datos_Gestionar_Principal{
 			return mysql_query("select id_principal,nombre,imagen from principal where observacion='Habilitado';");
 		}
 	}
+        function Mostrar_Imagen_Principal($id_principal=0){
+		if($this->con->conectar()==true){
+			return mysql_query("select id_principal,nombre,imagen from principal where observacion='Habilitado' and id_principal=".$id_principal.";");
+		}
+	}
 
 
 

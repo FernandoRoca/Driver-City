@@ -11,7 +11,7 @@ class DBManager{
                  /* Tambien cambiar en la autentificacion control*/
 
 
-
+		
 		$this->BaseDatos = "movil";
 		$this->Servidor = "localhost";
 		$this->Usuario = "root";

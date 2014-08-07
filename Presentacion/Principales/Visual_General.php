@@ -17,9 +17,10 @@ include_once('Helper.php');
 
    <?php
            $tipo="BAR";
+             $id_Negocio=base64_decode(@$_GET['id_negocio']);
         require('../../Negocio/Negocio_Negocio.php');
          $objN_Negocio=new Negocio_Negocio();
-          $objN_Negocio->Obtener_Logo(2);
+          $objN_Negocio->Obtener_Logo($id_Negocio);
         ?>
   
      
@@ -33,7 +34,7 @@ include_once('Helper.php');
               <?php
               require('../../Negocio/Negocio_Imagen_Negocio.php');
               $objN_Imagen_Negocio=new Negocio_Imagen_Negocio();
-              $objN_Imagen_Negocio->Insertar_Slider(2);
+              $objN_Imagen_Negocio->Insertar_Slider($id_Negocio);
               ?>
              
               
@@ -44,15 +45,21 @@ include_once('Helper.php');
       <div class="content_adm" align="center" >
                                   
     <form  method="post" enctype="multipart/form-data" style="text-align: center">
-        <h1><?php echo $tipo;?></h1> </br>
+      
         <?php 
      
-        $objN_Negocio->Obtener_Datos_Negocio(2);
+        $objN_Negocio->Obtener_Datos_Negocio($id_Negocio);
        ?>
      
-   
-      <input name="enviar" type="submit" class="boton" id="enviar" value="Como Llegar" />
-    
+   <form  method="post" enctype="multipart/form-data" style="text-align: center">
+      <input name="Llegar" type="submit" class="boton" id="enviar" value="Como Llegar" />
+      <input name="Relacionadores" type="submit" class="boton" id="enviar" value="Relacionadores" />
+      </form> 
+    <?php
+if (@$_REQUEST['Relacionadores'] == "Relacionadores"){
+ echo "<script> location.href='Relacionadores.php?id_negocio=".base64_encode($id_Negocio)."';</script>";
+ }
+ ?>
     
     
 </form>
