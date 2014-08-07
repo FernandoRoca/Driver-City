@@ -19,7 +19,8 @@ class Datos_Gestionar_Clasificacion{
 	
     function Insertar_Clasificacion($nombre="",$descripcion=""){
         if($this->con->conectar() == true){
-            return mysql_query("call proc_insertar_clasificacion('".$nombre."','".$descripcion."');");
+            return mysql_query("insert into clasificacion
+                                    values(null,'".$nombre."','".$descripcion."','Habilitado');");
         }
     }
 
@@ -27,14 +28,19 @@ class Datos_Gestionar_Clasificacion{
 //-------------------------UPDATE-------------------------------//
     function Modificar_Clasificacion($id_clasificacion=0,$nombre="",$descripcion="") {
         if($this->con->conectar() == true){
-            return mysql_query("call proc_modificar_clasificacion(".$id_clasificacion.",'".$nombre."','".$descripcion."');");
+            return mysql_query("update clasificacion c set
+                                    c.nombre = '".$nombre."',
+                                    c.descripcion = '".$descripcion."'
+                                        where c.id_clasificacion = ".$id_clasificacion.";");
         }
     }
 
 //----------------------DELETE----------------------------//
     function Eliminar_Clasificacion($id_clasificacion=0){
         if($this->con->conectar()==true){
-            return mysql_query("call proc_eliminar_clasificacion(".$id_clasificacion.");");
+            return mysql_query("update clasificacion set
+                                    observacion = 'Deshabilitado'
+                                        where id_clasificacion = ".$id_clasificacion.";");
         }
     }
 
@@ -43,9 +49,11 @@ class Datos_Gestionar_Clasificacion{
     function Mostrar_Tabla_Clasificacion(){
         if($this->con->conectar()==true){
             //return mysql_query("call proc_tabla_horario_pelicula();");
-            return mysql_query("select id_clasificacion, nombre, descripcion
-                                    from clasificacion
-                                        where observacion = 'Habilitado';");
+            return mysql_query("select  id_clasificacion,
+                                        nombre,
+                                        descripcion
+                                            from clasificacion
+                                                where observacion = 'Habilitado';");
         }
     }
     

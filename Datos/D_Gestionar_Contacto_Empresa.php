@@ -20,7 +20,8 @@ class Datos_Gestionar_Contacto_Empresa{
     
     function Insertar_Contacto_Empresa($id_empresa=0,$contacto="",$telefono=0,$celular=0){
         if($this->con->conectar() == true){
-            return mysql_query("call proc_insertar_contacto_empresa(".$id_empresa.",'".$contacto."',".$telefono.",".$celular.");");
+            return mysql_query("insert into contacto_empresa 
+                                    values (null,".$id_empresa.",'".$contacto."',".$telefono.",".$celular.",'Habilitado');");
         }
     }
 
@@ -29,7 +30,12 @@ class Datos_Gestionar_Contacto_Empresa{
 
     function Modificar_Contacto_Empresa($id_contacto_empresa=0,$id_empresa=0,$contacto="",$telefono=0,$celular=0){
         if($this->con->conectar() == true) {
-            return mysql_query("call proc_modificar_contacto_empresa(".$id_contacto_empresa.",".$id_empresa.",'".$contacto."',".$telefono.",".$celular.");");    
+            return mysql_query("update	contacto_empresa ce set
+                                        ce.id_empresa = ".$id_empresa.",
+                                        ce.nombre = '".$contacto."',
+                                        ce.telefono = ".$telefono.",
+                                        ce.celular = ".$celular."
+                                            where ce.id_contacto_empresa = ".$id_contacto_empresa.";");    
         }
     }
 
@@ -37,7 +43,9 @@ class Datos_Gestionar_Contacto_Empresa{
 
     function Eliminar_Contacto_Empresa($id_contacto_empresa=0){
         if($this->con->conectar()==true){
-            return mysql_query("call proc_eliminar_contacto_empresa(".$id_contacto_empresa.");");	
+            return mysql_query("update  contacto_empresa set
+                                        observacion = 'Deshabilitado'
+                                        where id_contacto_empresa = ".$id_contacto_empresa.";");	
         }
     }
     

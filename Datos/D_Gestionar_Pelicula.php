@@ -20,19 +20,33 @@ class Datos_Gestionar_Pelicula{
     
     function Insertar_Pelicula($id_negocio=0,$nombre="",$director="",$genero="",$imagen="",$sinopsis="",$trailer=""){
         if($this->con->conectar() == true){
-            return mysql_query("call proc_insertar_pelicula(".$id_negocio.",'".$nombre."','".$director."','".$genero."','".$imagen."','".$sinopsis."','".$trailer."');");
+            return mysql_query("insert into pelicula 
+                                    values (null,
+                                            ".$id_negocio.",
+                                            '".$nombre."',
+                                            '".$director."',
+                                            '".$genero."',
+                                            '".$imagen."',
+                                            '".$sinopsis."',
+                                            '".$trailer."',
+                                            'Habilitado');");
         }
     }
 
-    function Insertar_Horario_Pelicula($id_pelicula=0,$id_negocio=0,$horario="",$fecha_inicio="",$fecha_fin=""){
-        if($this->con->conectar() == true){
-            return mysql_query("call proc_insertar_horario_pelicula(".$id_pelicula.",".$id_negocio.",'".$horario."','".$fecha_inicio."','".$fecha_fin."');");
-        }
-    }
 
     function Mostrar_Tabla_Pelicula(){
         if($this->con->conectar()==true){
-            return mysql_query("call proc_tabla_pelicula('Habilitado');");
+            return mysql_query("select  p.id_pelicula,
+                                        n.id_negocio,
+                                        n.nombre as cine,
+                                        p.nombre,p.director,
+                                        p.genero,
+                                        p.imagen,
+                                        p.sinopsis,
+                                        p.trailer
+                                            from pelicula p, negocio n
+                                                where   p.id_negocio = n.id_negocio and
+                                                        p.observacion = 'Habilitado';");
         }
     }
 
@@ -47,7 +61,9 @@ class Datos_Gestionar_Pelicula{
 
     function Eliminar_Pelicula($id_pelicula=0){
         if($this->con->conectar()==true){
-            return mysql_query("call proc_eliminar_pelicula(".$id_pelicula.");");	
+            return mysql_query("update pelicula
+                                    set observacion = 'Deshabilitado'
+                                        where id_pelicula = ".$id_pelicula.";");	
         }
     }
     
@@ -82,16 +98,5 @@ class Datos_Gestionar_Pelicula{
         }
     }
     
-    
-    
-    /*
-    function Mostrar_Horarios_Pelicula($id_pelicula=0) {
-        if($this->con->conectar() == true) {
-            return mysql_query("SELECT hp.id_horario_pelicula, p.id_pelicula, hp.horario
-		FROM pelicula p, horario_pelicula hp 
-			WHERE p.id_pelicula = hp.id_pelicula AND
-				p.id_pelicula = ".$id_pelicula.";");
-        }
-    }*/
 }
 ?>

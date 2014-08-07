@@ -19,7 +19,8 @@ class Datos_Gestionar_Negocio_Clasificacion{
 	
     function Insertar_Negocio_Clasificacion($id_clasificacion=0,$id_negocio=0){
         if($this->con->conectar() == true){
-            return mysql_query("call proc_insertar_negocio_clasificacion(".$id_clasificacion.",".$id_negocio.");");
+            return mysql_query("insert into negocio_clasificacion
+                                    values(null,".$id_clasificacion.",".$id_negocio.",'Habilitado');");
         }
     }
 
@@ -29,7 +30,9 @@ class Datos_Gestionar_Negocio_Clasificacion{
 //----------------------DELETE----------------------------//
     function Eliminar_Negocio_Clasificacion($id_negocio_clasificacion=0){
         if($this->con->conectar()==true){
-            return mysql_query("call proc_eliminar_negocio_clasificacion(".$id_negocio_clasificacion.");");
+            return mysql_query("update negocio_clasificacion set
+                                    observacion = 'Deshabilitado'
+                                        where id_negocio_clasificacion = ".$id_negocio_clasificacion.";");
         }
     }
 

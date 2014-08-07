@@ -17,11 +17,11 @@ class Datos_Gestionar_Horario_Pelicula{
 
     function Listar_Peliculas($id_negocio=0){
         if($this->con->conectar() == true){
-            return mysql_query("SELECT n.id_negocio, p.id_pelicula, p.nombre
-                                FROM pelicula p, negocio n
-                                        WHERE	n.observacion = 'Habilitado' AND
-                                                n.id_negocio = ".$id_negocio." AND
-                                                p.id_negocio = n.id_negocio AND
+            return mysql_query("select n.id_negocio, p.id_pelicula, p.nombre
+                                from pelicula p, negocio n
+                                        where	n.observacion = 'Habilitado' and
+                                                n.id_negocio = ".$id_negocio." and
+                                                p.id_negocio = n.id_negocio and
                                                 p.observacion = 'Habilitado';");
         }
     }
@@ -32,22 +32,19 @@ class Datos_Gestionar_Horario_Pelicula{
 	
     function Insertar_Horario_Pelicula($id_pelicula=0,$horario="",$fecha_inicio="",$fecha_fin=""){
         if($this->con->conectar() == true){
-            return mysql_query("call proc_insertar_horario_pelicula(".$id_pelicula.",'".$horario."','".$fecha_inicio."','".$fecha_fin."');");
+            return mysql_query("insert into horario_pelicula
+                                    values(null,".$id_pelicula.",'".$horario."','".$fecha_inicio."','".$fecha_fin."');");
         }
     }
 
 
 //-------------------------UPDATE-------------------------------//
-    function Modificar_horario_Pelicula($id_horario_pelicula=0,$id_pelicula=0,$horario="",$fecha_inicio="",$fecha_fin="") {
-        if($this->con->conectar() == true){
-            return mysql_query("call proc_modificar_horario_pelicula(".$id_horario_pelicula.",".$id_pelicula.",'".$horario."','".$fecha_inicio."','".$fecha_fin."');");
-        }
-    }
 
 //----------------------DELETE----------------------------//
     function Eliminar_horario_Pelicula($id_horario_pelicula=0){
         if($this->con->conectar()==true){
-            return mysql_query("call proc_eliminar_horario_pelicula(".$id_horario_pelicula.");");
+            return mysql_query("delete from horario_pelicula
+                                    where id_horario_pelicula = ".$id_horario_pelicula.";");
         }
     }
 

@@ -20,7 +20,8 @@ class Datos_Gestionar_Empresa{
     
     function Insertar_Empresa($nombre="",$logo="",$descripcion=""){
         if($this->con->conectar() == true){
-            return mysql_query("call proc_insertar_empresa('".$nombre."','".$logo."','".$descripcion."');");
+            return mysql_query("insert into empresa 
+                                values (null,'".$nombre."','".$logo."','".$descripcion."','Habilitado');");
         }
     }
 
@@ -33,7 +34,9 @@ class Datos_Gestionar_Empresa{
 
     function Eliminar_Empresa($id_empresa=0){
         if($this->con->conectar()==true){
-            return mysql_query("call proc_eliminar_empresa(".$id_empresa.");");	
+            return mysql_query("update empresa set
+                                    observacion = 'Deshabilitado'
+                                        where id_empresa = ".$id_empresa.";");	
         }
     }
     
@@ -55,17 +58,6 @@ class Datos_Gestionar_Empresa{
             return mysql_query("call proc_modificar_empresa(".$id_empresa.",'".$nombre."','".$logo."','".$descripcion."');");    
         }
     }
-    
-    
-    
-    /*
-    function Mostrar_Horarios_Pelicula($id_pelicula=0) {
-        if($this->con->conectar() == true) {
-            return mysql_query("SELECT hp.id_horario_pelicula, p.id_pelicula, hp.horario
-		FROM pelicula p, horario_pelicula hp 
-			WHERE p.id_pelicula = hp.id_pelicula AND
-				p.id_pelicula = ".$id_pelicula.";");
-        }
-    }*/
+   
 }
 ?>
