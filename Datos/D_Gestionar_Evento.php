@@ -47,7 +47,7 @@ class Datos_Gestionar_Evento{
         function Modificar_sin_Logo_Evento($id_evento=0,$id_principal=0,$nombre="",$lugar="",$hora="",$descripcion="",$x=0.0,$y=0.0,$fecha_inicio="",$fecha_final=""){
 		if($this->con->conectar()==true){
 
-			return mysql_query("update evento id_principal=".$id_principal.",nombre='".$nombre."',lugar='".$lugar."',hora='".$hora."',descripcion='".$descripcion."',posicion_x=".$x.",posicion_y=".$y.",fecha_inicio='".$fecha_inicio."',fecha_final='".$fecha_final."' where id_evento = ".$id_evento);
+			return mysql_query("update evento set id_principal=".$id_principal.",nombre='".$nombre."',lugar='".$lugar."',hora='".$hora."',descripcion='".$descripcion."',posicion_x=".$x.",posicion_y=".$y.",fecha_inicio='".$fecha_inicio."',fecha_final='".$fecha_final."' where id_evento = ".$id_evento);
 		}
 	}
 

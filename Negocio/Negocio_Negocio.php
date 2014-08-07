@@ -27,10 +27,10 @@ var $objD_Gestionar_Negocio;
           }
         }
         }
-  }
+  } 
+  
 
-
-		function Eliminar_logo_Negocio($id_logo_negocio=0){
+  function Eliminar_logo_Negocio($id_logo_negocio=0){
 
       $consulta=$this->objD_Gestionar_Negocio->Obtener_Logo_Negocio($id_logo_negocio);
       if($consulta) {
@@ -106,7 +106,8 @@ function Insertar_Negocio($id_principal=0,$nombre="",$direccion="",$descripcion=
 
                     </script>";
                     echo "<meta http-equiv=refresh content=1;URL=Negocio.php>";
-                    }    }
+                    } 
+                }
             }
           }
           }
@@ -135,7 +136,7 @@ function Tabla_Negocio(){
       <th>Posicion X</th>
       <th>Posicion Y</th>
       <th>Fecha Inicio</th>
-      <th>Fecha Final</th>
+      <th>Fecha Fin</th>
       <th>Editar</th>
       <th>Eliminar</th>
 
@@ -154,7 +155,8 @@ if($consulta) {
                           <td align="middle">';echo $Tabla_Negocio['direccion'];echo'</td>
                           <td align="middle">';echo $Tabla_Negocio['descripcion'];echo'</td>    
                           <td align="middle">';echo $Tabla_Negocio['web'];echo'</td>    
-                          <td align="middle"><a href="../../img/Logo_Negocio/';echo $Tabla_Negocio['logo'];echo'">';echo $Tabla_Negocio['logo'];echo '</a></td>
+                          <td align="middle"><img src="../../img/Logo_Negocio/';echo $Tabla_Negocio['logo'];echo'"></img></td>	  
+						 
                           <td align="middle">';echo $Tabla_Negocio['posicion_x'];echo'</td>
                           <td align="middle">';echo $Tabla_Negocio['posicion_y'];echo'</td>    
                           <td align="middle">';echo $Tabla_Negocio['fecha_inicio'];echo'</td>
@@ -306,7 +308,6 @@ function Modificar_Sin_Logo_Negocio($id_negocio=0,$id_principal=0,$nombre="",$di
             else{              
 
                                     if ($this->objD_Gestionar_Negocio->Modificar_sin_Logo_Negocio($id_negocio,$id_principal,$nombre,$direccion,$descripcion,$web,$x,$y,$fecha_inicio,$fecha_final) == true){
-                                        
 
                                 echo "<script>alert('Modificacion Realizada con Exito!!');
 

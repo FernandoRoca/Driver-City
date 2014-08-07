@@ -289,7 +289,7 @@ function Modificar_Logo_Evento($id_evento=0,$id_principal=0,$nombre="",$lugar=""
 
 }
 
-function Modificar_Sin_Logo_Negocio($id_evento=0,$id_principal=0,$nombre="",$lugar="",$hora="",$descripcion="",$x=0.0,$y=0.0,$fecha_inicio="",$fecha_final=""){
+function Modificar_Sin_Logo_Evento($id_evento=0,$id_principal=0,$nombre="",$lugar="",$hora="",$descripcion="",$x=0.0,$y=0.0,$fecha_inicio="",$fecha_final=""){
 
  if($id_principal==0){
                 echo "<script>alert('Seleccione un Tipo Principal!!');
