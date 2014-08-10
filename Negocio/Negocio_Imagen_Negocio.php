@@ -189,7 +189,7 @@ function Modificar_Sin_Imagen_Negocio($id_imagen_negocio=0,$id_negocio=0){
                          echo"<div class=\"item active\">" ; 
                         else
                          echo"<div class=\"item \">" ;    
-                         echo "<img width=1200 px;  src=\"../../img/Imagen_Negocio/".$imagen_Negocio['ubicacion']."\">";                      
+                         echo "<img  src=\"../../img/Imagen_Negocio/".$imagen_Negocio['ubicacion']."\">";                      
                          echo"</div>";
                          $cont++;
                     }
@@ -208,7 +208,7 @@ function Insertar_Slider($id_negocio=0){
                             <a class=\"left carousel-control\" href=\"#myCarousel\" data-slide=\"prev\"><img src=\"../../img/arrow.png\" alt=\"Arrow\"></a>
                             <a class=\"right carousel-control\" href=\"#myCarousel\" data-slide=\"next\"><img src=\"../../img/arrow2.png\" alt=\"Arrow\"></a>
                             </div>
-                              <hr>";
+                              ";
                        break;
                     }
                }

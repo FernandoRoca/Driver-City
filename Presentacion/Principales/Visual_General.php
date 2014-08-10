@@ -4,10 +4,13 @@
 <head>
 <title></title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script> 
 <?php
 include_once('Helper.php');
 ?>
-   
+   <link rel="stylesheet" href="../../css/jquery.mobile-1.2.0.css" />
+ 
   </head>
 
   <body>
@@ -24,8 +27,9 @@ include_once('Helper.php');
         ?>
   
      
+<hr>
 
-  <hr>
+
     
      
              
@@ -50,16 +54,8 @@ include_once('Helper.php');
      
         $objN_Negocio->Obtener_Datos_Negocio($id_Negocio);
        ?>
-     
-   <form  method="post" enctype="multipart/form-data" style="text-align: center">
-      <input name="Llegar" type="submit" class="boton" id="enviar" value="Como Llegar" />
-      <input name="Relacionadores" type="submit" class="boton" id="enviar" value="Relacionadores" />
-      </form> 
-    <?php
-if (@$_REQUEST['Relacionadores'] == "Relacionadores"){
- echo "<script> location.href='Relacionadores.php?id_negocio=".base64_encode($id_Negocio)."';</script>";
- }
- ?>
+    
+
     
     
 </form>
@@ -70,7 +66,15 @@ if (@$_REQUEST['Relacionadores'] == "Relacionadores"){
 
             
       </div>
-      
+       <div data-role="footer" data-position="fixed">
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#">Como Llegar</a></li>
+        <li><a href="Relacionadores.php?id_negocio=<?php echo base64_encode($id_Negocio);?>" data-icon="refresh">Relacionadores</a></li>
+       
+      </ul>
+    </div>
+  </div> 
          
 <?php
 include_once('Footer.php');

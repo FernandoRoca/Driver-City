@@ -9,13 +9,16 @@ class DBManager{
 	function DBManager(){
 
                  /* Tambien cambiar en la autentificacion control*/
-
-
-		
-		$this->BaseDatos = "movil";
+            $this->BaseDatos = "movil";
 		$this->Servidor = "localhost";
 		$this->Usuario = "root";
 		$this->Clave = "123";
+
+		
+		/*$this->BaseDatos = "z6000536_movil";
+		$this->Servidor = "localhost";
+		$this->Usuario = "z6000536_movil";
+		$this->Clave = "Bigbolivia1";*/
 		
 
 

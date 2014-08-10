@@ -61,7 +61,7 @@ var $objD_Gestionar_Publicidad;
                          echo"<div class=\"item active\">" ; 
                         else
                          echo"<div class=\"item \">" ;    
-                         echo "<img width=1200 px;  src=\"../../img/Imagen_Publicidad/".$imagen_Publicidad['imagen']."\">";                      
+                         echo "<img  src=\"../../img/Imagen_Publicidad/".$imagen_Publicidad['imagen']."\">";                      
                          echo"</div>";
                       
                        $cont++;

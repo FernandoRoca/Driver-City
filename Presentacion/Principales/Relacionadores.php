@@ -14,10 +14,11 @@ include_once('Helper.php');
   
   
   <div class="container">
+      <img src="../../img/Principales/Logo.png"/>
   <?php
-              require('../../Negocio/Negocio_Publicidad.php');
+            /*  require('../../Negocio/Negocio_Publicidad.php');
               $objN_Imagen_Publicidad=new Negocio_Publicidad();
-              $objN_Imagen_Publicidad->Insertar_Slider();
+              $objN_Imagen_Publicidad->Insertar_Slider();*/
               ?>
       <hr>
    <?php         

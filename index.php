@@ -5,8 +5,8 @@
         <title></title>
     </head>
     <body>
-        <?php
-        // put your code here
-        ?>
+       <?php
+header('Location: Presentacion/Principales/Principal.php');
+?>
     </body>
 </html>

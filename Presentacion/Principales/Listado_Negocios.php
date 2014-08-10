@@ -15,27 +15,32 @@ include_once('Helper.php');
   
   <div class="container">
 
-  <!--<img width=1200 px src="../../img/Imagen_Negocio/d3ed44_1BIGdegradados.png"/>-->
+  <img src="../../img/Principales/Logo.png"/>
        <?php
                 $id_Central= base64_decode(@$_GET['id_central']);
                 $id_principal=base64_decode(@$_GET['id_principal']);
                 $tipo=base64_decode(@$_GET['tipo']);
-              require('../../Negocio/Negocio_Publicidad.php');
+             /* require('../../Negocio/Negocio_Publicidad.php');
               $objN_Imagen_Publicidad=new Negocio_Publicidad();
-              $objN_Imagen_Publicidad->Insertar_Slider();
+              $objN_Imagen_Publicidad->Insertar_Slider();*/
               ?>
   
+  <table border="0">
      
+      <tbody>
+          <tr  width="1200 px">
+              <td><img src="../../img/Principales/Gastronomia.jpg"/>  </td>
+              <td><a href="Promocion_Dia.php?id_principal=<?php echo base64_encode($id_principal);?>"> <img  src="../../img/Principales/Promo.jpg"/></a> </td>
+          </tr>
+      </tbody>
+  </table>
 
-  <hr>
-       <form  method="post" enctype="multipart/form-data" style="text-align: center">
-       <input name="Promocion" type="submit" class="boton pull-right" id="Modificar" value="Promocion del Dia" /> 
-       </form>
-       <?php
-if (@$_REQUEST['Promocion'] == "Promocion del Dia"){
- echo "<script> location.href='Promocion_Dia.php?id_principal=".base64_encode($id_principal)."';</script>";
- }
- ?>
+
+
+
+
+   
+     
  <br/><br/><br/>
  
       <div class="content_adm" align="center" >
@@ -44,7 +49,7 @@ if (@$_REQUEST['Promocion'] == "Promocion del Dia"){
        
         <?php
          
-          echo "<h3>".$tipo."</h3><br/>";
+       
         require('../../Negocio/Negocio_Negocio.php');
          $objN_Principal=new Negocio_Negocio();
          if($id_Central==0)
