@@ -20,6 +20,10 @@
 <script src="../../js/jquery.smooth-scroll.min.js"></script>
 <script src="../../js/lightbox.js"></script>
 
+
+
+
+
    <script>
 $('.carousel').carousel({
   interval: 

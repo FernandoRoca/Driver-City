@@ -67,12 +67,12 @@ include_once('Menu.php');
            ?>
         </select>
       
-        <p> Hora Apertura (Formato 24 Horas):</p>      
+        <p> Hora Apertura :</p>      
         
-        <input type="text" value="<?php echo $Hora_inicio ?>" name="HE"/>
-                <p> Hora Cierre (Formato 24 Horas):</p>      
+        <input type="time" value="<?php echo $Hora_inicio ?>" name="HE"/>
+                <p> Hora Cierre :</p>      
         
-        <input type="text" value="<?php echo $Hora_fin ?>" name="HS"/>
+        <input type="time" value="<?php echo $Hora_fin ?>" name="HS"/>
        
         
         

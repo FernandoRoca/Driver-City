@@ -8,29 +8,25 @@ class DBManager{
 	var $Clave;
 	function DBManager(){
 
-                 /* Tambien cambiar en la autentificacion control*/
-            $this->BaseDatos = "movil";
-		$this->Servidor = "localhost";
-		$this->Usuario = "root";
-		$this->Clave = "123";
-
-		
-		/*$this->BaseDatos = "z6000536_movil";
+             /*$this->BaseDatos = "z6000536_movil";
 		$this->Servidor = "localhost";
 		$this->Usuario = "z6000536_movil";
 		$this->Clave = "Bigbolivia1";*/
-		
-
-
+                 /* Tambien cambiar en la autentificacion control*/
+                $this->BaseDatos = "movil";
+		$this->Servidor = "localhost";
+		$this->Usuario = "root";
+		$this->Clave = "123";
+                
 	}
 
 	 function conectar() {
 		if(!($con=@mysql_connect($this->Servidor,$this->Usuario,$this->Clave))){
-			echo"<h1> [:(] Error al conectar a la base de datos</h1>";
+			echo"<h1> [:'(] Error al conectar a la base de datos</h1>";
 			exit();
 		}
 		if (!@mysql_select_db($this->BaseDatos,$con)){
-			echo "<h1> [:(] Error al seleccionar la base de datos</h1>";
+			echo "<h1> [:o] Error al seleccionar la base de datos</h1>";
 			exit();
 		}
 		$this->conect=$con;

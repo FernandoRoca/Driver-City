@@ -160,8 +160,8 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 18px;
-  color: #333333;
-  background: #3b291a url(../img/Principales/Fondo.jpg) repeat top center;
+ /* color: #333333;*/
+  background: url(../img/Principales/Fondo.jpg) top center;
 }
 a {
   color: #A8BF75;
@@ -422,7 +422,7 @@ a:hover {
 
 p {
   margin: 0 0 9px;
-  color: #676563;
+  /*color: #ffffff;*/
 }
 
 p small {
@@ -446,7 +446,7 @@ h6 {
   margin: 0;
   font-family: 'Lato', sans-serif;
   font-weight: bold;
-  color: #9b958b;
+  /*color: #9b958b;*/
   text-rendering: optimizelegibility;
 }
 

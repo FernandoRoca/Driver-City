@@ -38,10 +38,10 @@ else
 
 ?>
 
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="Content-Type" name="viewport" content="initial-scale=1.0; user-scalable=no,text/html; charset=UTF-8" />
 <?php
 include_once('Helper.php');
 include_once('Mapa.php');
@@ -103,14 +103,14 @@ include_once('Menu.php');
 
         <input type="text" value="<?php echo $web ?>" name="WEB" />
           <p> Logo:</p>
-        <input name="archivo" type="file" class="casilla" id="archivo" size="35" value="<?php echo $logo ?>"/>
+        <input name="archivo" type="file" class="casilla" id="archivo" style="color: #ffffff;" size="35" value="<?php echo $logo ?>"/>
 
          <?php
       if($logo!=""){
       ?>
-
+     
          <p>  Mantener Imagen:</p>
-        <input type="checkbox" name="Mantener_Imagen" value="ON" checked="checked" /><a href="../../img/Logo_Negocio/<?php echo $logo ?>"><p>      <?php echo $logo ?></p></a>
+        <input type="checkbox" name="Mantener_Imagen" value="ON" checked="checked" /> <p>      <?php echo $logo ?></p> <img src="../../img/Logo_Negocio/<?php echo $logo ?>"/>
 
          <?php
       }
@@ -124,7 +124,6 @@ include_once('Menu.php');
 
         </p>
         <input type="text" name="TFechaF" class="tcal" value="<?php echo $Fecha_Final ?>"  readonly="readonly" />
-
         <p >Latitud:</p>
         <input type="text" name="latitud" value="<?php echo $latitud;?>"  />
 

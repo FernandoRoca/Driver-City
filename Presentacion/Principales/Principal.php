@@ -14,7 +14,7 @@ include_once('Helper.php');
   
   
   <div class="container">
- <hr>
+
   <img src="../../img/Principales/Logo.png"/>
        <?php
            /*   require('../../Negocio/Negocio_Publicidad.php');
@@ -24,7 +24,7 @@ include_once('Helper.php');
   
      
 
-  <hr>
+
     
      
              
@@ -38,10 +38,11 @@ include_once('Helper.php');
 
       <div class="content_adm" align="center" >
                                   
-    
+      
+
        
         <?php
-          
+
         require('../../Negocio/Negocio_Principal.php');
          $objN_Principal=new Negocio_Principal();
           $objN_Principal->Mostrar_Imagenes_Principal();

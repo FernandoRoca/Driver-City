@@ -177,7 +177,7 @@ if($consulta) {
                           <td align="middle">';echo $Tabla_Evento['nombre'];echo'</td>
                           <td align="middle">';echo $Tabla_Evento['lugar'];echo'</td>
                           <td align="middle">';echo $Tabla_Evento['hora'];echo'</td>    
-                          <td align="middle"><a href="../../img/Logo_Evento/';echo $Tabla_Evento['imagen'];echo'">';echo $Tabla_Evento['imagen'];echo '</a></td>
+                          <td align="middle"><img src="../../img/Logo_Evento/';echo $Tabla_Evento['imagen'];echo'"/></td>
                           <td align="middle">';echo $Tabla_Evento['descripcion'];echo'</td>                              
                           <td align="middle">';echo $Tabla_Evento['posicion_x'];echo'</td>
                           <td align="middle">';echo $Tabla_Evento['posicion_y'];echo'</td>    
@@ -289,7 +289,7 @@ function Modificar_Logo_Evento($id_evento=0,$id_principal=0,$nombre="",$lugar=""
 
 }
 
-function Modificar_Sin_Logo_Negocio($id_evento=0,$id_principal=0,$nombre="",$lugar="",$hora="",$descripcion="",$x=0.0,$y=0.0,$fecha_inicio="",$fecha_final=""){
+function Modificar_Sin_Logo_Evento($id_evento=0,$id_principal=0,$nombre="",$lugar="",$hora="",$descripcion="",$x=0.0,$y=0.0,$fecha_inicio="",$fecha_final=""){
 
  if($id_principal==0){
                 echo "<script>alert('Seleccione un Tipo Principal!!');

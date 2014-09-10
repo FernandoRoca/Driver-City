@@ -17,10 +17,66 @@ background:#d82727;
 
 padding:15px;
 }
+
+
 </style>
 <?php
 include_once('Helper.php');
 ?>
+ <script src="../../js/maps" type="text/javascript"></script>
+    <script src="../../js/{main,adsense,geometry,zombie}.js" type="text/javascript"></script>
+         <script type="text/javascript">
+    
+     var Principal;
+   function obtener_localizacion(principal) {
+      
+      Principal=principal;
+      
+  if (navigator.geolocation) {
+  		navigator.geolocation.getCurrentPosition(coordenadas,gestiona_errores);
+                
+                
+  }else{
+	alert('Tu navegador no soporta la API de geolocalizacion');  
+  }
+   
+   
+ 
+}
+
+function coordenadas(position) {
+  latitudA = position.coords.latitude;
+  longitudA = position.coords.longitude;
+ window.location = 'Listado_Negocios.php?id_principal='+Principal+'&latitud='+latitudA+'&longitud='+longitudA;
+
+ 
+ 	
+ /*origin1 = new google.maps.LatLng(latitudA, longitudA);    
+ destinationA = new google.maps.LatLng(latitudB, longitudB); */
+ 
+ //calculateDistance();
+}
+
+function gestiona_errores(err) {
+  if (err.code == 0) {
+    alert("error desconocido");
+  }
+  if (err.code == 1) {
+    alert("El usuario no ha compartido su posicion");
+  }
+  if (err.code == 2) {
+    alert("no se puede obtener la posicion actual");
+  }
+  if (err.code == 3) {
+    alert("timeut recibiendo la posicion");
+  }
+}
+  
+
+  
+
+
+    </script>
   </head>
 
   <body>
@@ -28,45 +84,42 @@ include_once('Helper.php');
   
   <div class="container">
 
-  <img src="../../img/Principales/Logo.png"/>
-       <?php
-                $id_Central= base64_decode(@$_GET['id_central']);
+  <?php      
                 $id_principal=base64_decode(@$_GET['id_principal']);
-                $tipo=base64_decode(@$_GET['tipo']);
-             /* require('../../Negocio/Negocio_Publicidad.php');
-              $objN_Imagen_Publicidad=new Negocio_Publicidad();
-              $objN_Imagen_Publicidad->Insertar_Slider();*/
-              ?>
+   ?>
+    
   
-  <table border="0">
+  <table border="0" cellspacing="0" cellpadding="0">
      
       <tbody>
+          <tr  width="1000 px" >
+              <td colspan="2"><img  src="../../img/Principales/diver_city_gastronomia.gif"/></td>
+          </tr>
           <tr  width="1000 px">
-              <td><img src="../../img/Principales/Gastronomia.jpg"/>  </td>
-              <td><a href="Promocion_Dia.php?id_principal=<?php echo base64_encode($id_principal);?>"> <img  src="../../img/Principales/Promo.jpg"/></a> </td>
+             
+              <td><a rel=\"external\" href="Promocion_Dia.php?id_principal=<?php echo base64_encode($id_principal);?>"> <img src="../../img/Principales/Gastronomia.gif"/></a> </td>
           </tr>
       </tbody>
   </table>
+  
 
 
 
-
-
-   
      
  <br/><br/><br/>
- 
-    
- <div id="contenedorr3" class="pull-left" style="text-align: center; color: fffefd;">
-              <img src="../../img/Imagen_Clasificacion/Mariscos.jpg"/> 
-<h3>Pescados y Mariscos</h3>
-</div>                
-         
-          <div id="contenedorr3" class="pull-right" style="text-align: center; color: fffefd;">
-                <img src="../../img/Imagen_Clasificacion/Parrillada.jpg"/> 
-<h3>Parrilada y Churrasco</h3>
-</div>    
 
+ 
+ <div  align="center" >
+    <?php
+          
+               
+              require('../../Negocio/Negocio_Clasificacion.php');
+              $objN_Clasificacion=new Negocio_Clasificacion();
+              $objN_Clasificacion->Menu_Clasificacion($id_principal);
+              ?>
+    
+
+</div>
        
       
 
