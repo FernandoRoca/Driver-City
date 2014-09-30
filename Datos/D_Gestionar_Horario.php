@@ -41,7 +41,16 @@ class Datos_Gestionar_Horario{
 		}
 	}
        
-    
+    function Mostrar_Horas_Negocio($id_negocio=0){ 
+		if($this->con->conectar()==true){
+			return mysql_query("SELECT hora_inicio,hora_fin FROM `horario` where observacion='Habilitado' and id_negocio=".$id_negocio." GROUP BY hora_inicio,hora_fin;");
+		}
+	}
+      function Mostrar_Dias_Negocio($id_negocio=0,$hora_inicio="",$hora_fin=""){ 
+		if($this->con->conectar()==true){
+			return mysql_query("select SUBSTRING(dia.nombre,1,2) as dias from horario,dia where dia.id_dia=horario.id_dia and horario.id_negocio=".$id_negocio." and horario.hora_inicio='".$hora_inicio."' and horario.hora_fin='".$hora_fin."' GROUP BY dias ORDER BY dia.id_dia;");
+		}
+	}  
 	
 }
 ?>

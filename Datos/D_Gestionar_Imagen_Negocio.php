@@ -31,7 +31,7 @@ class Datos_Gestionar_Imagen_Negocio{
 	}
         function Obtener_Imagen_del_Negocio($id_negocio=0){
 		if($this->con->conectar()==true){
-			return mysql_query("select ubicacion from imagen_negocio where id_negocio = ".$id_negocio);
+			return mysql_query("select ubicacion from imagen_negocio where id_negocio = ".$id_negocio." and observacion='Habilitado'");
 		}
 	}
 

@@ -85,7 +85,7 @@ if($consulta) {
    echo' <tr>
                           <td align="middle">';echo $Contador;echo'</td>
                           <td align="middle">';echo $Tabla_Imagen_Negocio['nombre'];echo'</td>
-                          <td align="middle"><a href="../../img/Imagen_Negocio/';echo $Tabla_Imagen_Negocio['ubicacion'];echo'">';echo $Tabla_Imagen_Negocio['ubicacion'];echo '</a></td>
+                          <td align="middle"><img src="../../img/Imagen_Negocio/';echo $Tabla_Imagen_Negocio['ubicacion'];echo'"/></td>
                           <td align="middle"><span class="modi"><a href="Imagen_Negocio.php?id_imagen_negocio=';echo base64_encode($Tabla_Imagen_Negocio['id_imagen_negocio']);echo'&id_negocio=';echo  base64_encode($Tabla_Imagen_Negocio['id_negocio']);echo'&ubicacion=';echo base64_encode($Tabla_Imagen_Negocio['ubicacion']);echo'"><img src="../../img/database_edit.png" title="Editar" alt="Editar" /></a></span></td>
                           <td align="middle"><span class="dele"><a href="Imagen_Negocio.php?id_imagen_negocio=';echo base64_encode($Tabla_Imagen_Negocio['id_imagen_negocio']);echo'&id_negocio=';echo  base64_encode($Tabla_Imagen_Negocio['id_negocio']);echo'&ubicacion="><img src="../../img/delete.png" title="Eliminar" alt="Eliminar" /></a></span></td>
 

@@ -167,7 +167,7 @@ if($consulta) {
                           <td align="middle">';echo $Contador;echo'</td>
                           <td align="middle">';echo $Tabla_Promocion['negocio'];echo'</td>
                           <td align="middle">';echo $Tabla_Promocion['dia'];echo'</td>                            
-                          <td align="middle"><a href="../../img/Imagen_Promocion/';echo $Tabla_Promocion['imagen'];echo'">';echo $Tabla_Promocion['imagen'];echo '</a></td>                          
+                          <td align="middle"><img src="../../img/Imagen_Promocion/';echo $Tabla_Promocion['imagen'];echo'"/></td>                          
                           <td align="middle">';echo $Tabla_Promocion['fecha_inicio'];echo'</td>
                           <td align="middle">';echo $Tabla_Promocion['fecha_fin'];echo'</td>    
                           <td align="middle"><span class="modi"><a href="Promocion.php?id_promocion=';echo base64_encode($Tabla_Promocion['id_promocion']);echo'&id_negocio=';echo  base64_encode($Tabla_Promocion['id_negocio']);echo'&id_dia=';echo base64_encode($Tabla_Promocion['id_dia']);echo'&imagen=';echo base64_encode($Tabla_Promocion['imagen']);echo'&fecha_inicio=';echo base64_encode($Tabla_Promocion['fecha_inicio']);echo'&fecha_fin=';echo base64_encode($Tabla_Promocion['fecha_fin']);echo'"><img src="../../img/database_edit.png" title="Editar" alt="Editar" /></a></span></td>

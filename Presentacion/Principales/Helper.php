@@ -15,10 +15,9 @@
    <link rel="apple-touch-icon-precomposed" href="../../ico/apple-touch-icon-57-precomposed.png">
  <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="../../css/tcal.css" />
-
-<script type="text/javascript" src="../../js/tcal.js"></script>
-<script src="../../js/elegant-press.js" type="text/javascript"></script>
 <script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/tcal.js"></script>
+
 <link rel="stylesheet" type="text/css" href="../../css/jquery.dataTables.css" />
 <script type="text/javascript" src="../../js/jquery.dataTables.js"></script>
 <script type="text/javascript" language="javascript" class="init">
@@ -29,8 +28,9 @@ $(document).ready(function() {
   } );
 } );
 
+
   </script>
-  
+ 
   <!-- Evitar Texto -->
   <script>
             function validar_texto(e){

@@ -182,7 +182,35 @@ echo '</tbody>
 				
   }
   
+ function Get_Horario_Negocio($id_negocio=0){
+   $consulta=$this->objD_Gestionar_Horario->Mostrar_Horas_Negocio($id_negocio);
+   $resultado="";
+ 
+ 
+if($consulta) {
+  while( $Tabla_Horario = mysql_fetch_array($consulta) ){
+      
+         $consulta2=$this->objD_Gestionar_Horario->Mostrar_Dias_Negocio($id_negocio,$Tabla_Horario['hora_inicio'],$Tabla_Horario['hora_fin']);
+         if($consulta2) {
+                while( $Tabla_Horario2 = mysql_fetch_array($consulta2) ){
+                    $resultado.=$Tabla_Horario2['dias'].' - ';
+                }
+         }
+        
+         $resultado=  substr($resultado,0,  strlen($resultado)-2);
+         
+         $resultado.=' de '.$Tabla_Horario['hora_inicio'].' a '.$Tabla_Horario['hora_fin'].' ; ';
+         
+    }
+    
+}
+    
 
+ 
+return substr($resultado,0,  strlen($resultado)-2);
+ 
+	
+  }  
 
 }
 ?>

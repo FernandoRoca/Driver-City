@@ -14,37 +14,23 @@ include_once('Helper.php');
   
   
   <div class="container">
- <hr>
+
   <img src="../../img/Principales/Logo.png"/>
        <?php
-           /*   require('../../Negocio/Negocio_Publicidad.php');
-              $objN_Imagen_Publicidad=new Negocio_Publicidad();
-              $objN_Imagen_Publicidad->Insertar_Slider();*/
-              ?>
-  
-     
-
-  <hr>
-    
-     
-             
-
-              
-          
-              
-            
-    
-
+           $latitud=(@$_GET['latitud']);
+           $longitud=(@$_GET['longitud']);
+       ?>
 
       <div class="content_adm" align="center" >
                                   
-    
+      
+
        
         <?php
-          
+
         require('../../Negocio/Negocio_Principal.php');
          $objN_Principal=new Negocio_Principal();
-          $objN_Principal->Mostrar_Imagenes_Principal();
+          $objN_Principal->Mostrar_Imagenes_Principal($latitud,$longitud);
         ?>
 
         </div>

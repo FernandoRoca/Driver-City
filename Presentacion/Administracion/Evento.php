@@ -97,20 +97,21 @@ include_once('Menu.php');
         <p> Lugar:</p>
 
         <input type="text" value="<?php echo $lugar ?>" name="Lugar"/>
-         <p> Hora (Formato 24 Horas):</p>      
+         <p> Hora:</p>      
         
-        <input type="text" value="<?php echo $hora ?>" name="Hora"/>
+        <input type="time" value="<?php echo $hora ?>" name="Hora"/>
       
        
           <p> Logo:</p>
-        <input name="archivo" type="file" class="casilla" id="archivo" size="35" value="<?php echo $logo ?>"/>
+        <input name="archivo" type="file" class="casilla" id="archivo" style="color: #ffffff;" size="35" value="<?php echo $logo ?>"/>
 
          <?php
       if($logo!=""){
       ?>
 
          <p>  Mantener Imagen:</p>
-        <input type="checkbox" name="Mantener_Imagen" value="ON" checked="checked" /><a href="../../img/Logo_Negocio/<?php echo $logo ?>"><p>      <?php echo $logo ?></p></a>
+        <input type="checkbox" name="Mantener_Imagen" value="ON" checked="checked" /> <p><?php echo $logo ?></p> <img src="../../img/Logo_Evento/<?php echo $logo ?>"/>  
+        
 
          <?php
       }

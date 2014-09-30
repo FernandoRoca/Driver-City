@@ -20,6 +20,8 @@ class Datos_Gestionar_Dia{
 		}
 	}
         
+        
+        
 	
         
        	

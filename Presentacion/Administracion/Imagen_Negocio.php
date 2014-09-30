@@ -50,14 +50,15 @@ include_once('Menu.php');
         </select>
       
         <p> Imagen:</p>      
-        <input name="archivo" type="file" class="casilla" id="archivo" size="35" value="<?php echo $ubicacion ?>"/>
+        <input name="archivo" type="file" class="casilla" id="archivo" style="color: #ffffff;" size="35" value="<?php echo $ubicacion ?>"/>
         
          <?php
       if($id_imagen_negocio>0 && $ubicacion!=""){
       ?>
         
          <p>  Mantener Imagen:</p>
-        <input type="checkbox" name="Mantener_Imagen" value="ON" checked="checked" /><a href="../../img/Imagen_Negocio/<?php echo $ubicacion ?>"><p>      <?php echo $ubicacion ?></p></a>
+        <input type="checkbox" name="Mantener_Imagen" value="ON" checked="checked" /> <p><?php echo $ubicacion ?></p> <img src="../../img/Imagen_Negocio/<?php echo $ubicacion ?>"/> 
+        
         
          <?php
       }
